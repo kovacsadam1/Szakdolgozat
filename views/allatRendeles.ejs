@@ -1,0 +1,139 @@
+<h1 class="pt-5 text-center pb-5">
+    <%= title %> 
+</h1>
+
+<form 
+    class="row g-3 pt-5" 
+    method="POST" 
+    action="/rendeles/<%= id %> " 
+>
+
+    <div class="col-12">
+        <label 
+            for="allat_nev" 
+            class="form-label"
+        >
+            Allat
+        </label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="allat_nev"
+            name="allat_nev" 
+            value="<%= allatok[0].allat_nev %> "
+            disabled
+        >
+    </div>
+
+    <div class="col-md-6">
+        <label 
+            for="email" 
+            class="form-label"
+        >
+            Email
+        </label>
+        <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            required
+        >
+    </div>
+
+    <div class="col-md-6">
+        <label 
+            for="telefonszam" 
+            class="form-label"
+        >
+            Telefonszám
+        </label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="telefonszam" 
+            name="telefonszam" 
+            required
+        >
+    </div>
+
+    <div class="col-md-2">
+        <label 
+            for="zip" 
+            class="form-label"
+            >
+                Irányítószám
+            </label>
+        <input 
+            type="number" 
+            class="form-control" 
+            id="zip" 
+            name="zip" 
+            placeholder="8086" 
+            min="1000"
+            required
+        >
+    </div>
+
+    <div class="col-md-6">
+        <label 
+            for="telepules" 
+            class="form-label"
+        >
+            Település
+        </label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="telepules" 
+            name="telepules" 
+            placeholder="Felcsút" 
+            required
+        >
+    </div>
+
+    <div class="col-md-2">
+        <label 
+            for="utca" 
+            class="form-label"
+        >
+            Utca
+        </label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="utca" 
+            name="utca" 
+            placeholder="Puskás Ferenc utca" 
+            required
+        >
+    </div>
+
+    <div class="col-md-2">
+        <label 
+            for="hazszam" 
+            class="form-label"
+        >
+            Házszám
+        </label>
+        <input 
+            type="number" 
+            class="form-control" 
+            id="hazszam" 
+            name="hazszam" 
+            placeholder="1" 
+            min="1"
+            required
+        >
+    </div>
+
+    <div class="col-3 d-grid mx-auto mb-5">
+        <button 
+            type="submit" 
+            class="btn btn-primary"
+        >
+            Rendelés
+        </button>
+    </div>
+
+  </form>

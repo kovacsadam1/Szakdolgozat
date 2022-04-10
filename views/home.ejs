@@ -1,0 +1,137 @@
+<h1 class="pt-5 text-center pb-5">
+    <%= title %> 
+</h1>
+
+<main class="row justify-content-center">
+    
+    
+    <% allatok.forEach(allat => { %>
+     
+        <div 
+            class="card m-2 col-4" 
+            style="width: 16rem;
+                   border-radius: 8%;"
+        >
+            <img 
+                style="border-radius: 8%; 
+                       width: 200px;
+                       height: 150px;
+                       margin-left: auto;
+                       margin-right: auto;"
+
+                src="./img/<%= allat.kep %>" 
+                class="card-img-top" 
+                alt="<%= allat.allat_nev %>"
+            >
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= allat.allat_nev %>
+                </h5>
+                <p class="card-text">
+                    <%= allat.ar %> Ft
+                </p>
+                <!-- Button trigger modal -->
+                <div class="d-grid w-50 mx-auto">
+                    <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#allat-modal-<%= allat.allat_id %>"
+                    >
+                        Részletek
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div 
+            class="modal fade" 
+            id="allat-modal-<%= allat.allat_id %>"
+            tabindex="-1" 
+            aria-labelledby="exampleModalLabel" 
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> <%= allat.alalt_nev %> </h5>
+                            <button 
+                                type="button" 
+                                class="btn-close" 
+                                data-bs-dismiss="modal" 
+                                aria-label="Close"
+                            >
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                        <thead>
+                            <tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>Fajta</th>
+                                <td> <%= allat.fajta_nev %> </td>
+                            </tr>
+                            <tr>
+                                <th>Ár</th>
+                                <td> <%= allat.suly %> Ft</td>
+                                </tr>
+                            <tr>
+                            <th>Súly</th>
+                                <td> <%= allat.suly %> </td>
+                            </tr>
+                            <tr>
+                                <th>Életkor</th>
+                                <td> <%= allat.eletkor %> </td>
+                            </tr>
+                            <tr>
+                                <th>Neme</th>
+                                <td> <%= allat.neme ? 'Hím' : 'Nőstény' %> </td>
+                            </tr>
+                            <tr>
+                            <th>Oltott</th>
+                                <td> <%= allat.oltotsag ? 'igen' : 'nem' %> </td>
+                                </tr>
+                            <tr>
+                                <th>Törzskonyves</th>
+                                <td> <%= allat.torzskonyv ? 'igen' : 'nem' %> </td>
+                                </tr>
+                            <tr>
+                            <th>Ivartalanított</th>
+                                <td> <%= allat.ivartalanitott ? 'igen' : 'nem' %> </td>
+                            </tr>
+                            <tr>
+                                <th>Fajtatiszta</th>
+                                <td> <%= allat.fajtatiszta ? 'igen' : 'nem' %> </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button 
+                            type="button" 
+                            class="btn btn-secondary" 
+                            data-bs-dismiss="modal"
+                        >
+                            Bezárás
+                        </button>
+                        <div>
+                            <a 
+                                href="/rendeles/<%= allat.allat_id %>" 
+                                class="btn btn-primary"
+                            >
+                                Megrendelés
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <% }) %>
+
+</main>
+
+

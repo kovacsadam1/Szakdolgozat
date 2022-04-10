@@ -1,0 +1,246 @@
+<h1 class="pt-5 text-center pb-5">
+    <%= title %> 
+</h1>
+
+<form 
+    class="g-3 pt-5" 
+    method="post"
+    action="/feltoltes"
+    enctype="multipart/form-data"
+
+>
+    <section class="row justify-content-center mb-3">
+        <div class="col-4">
+            <label 
+                for="allat_nev" 
+                class="form-label"
+            >
+                Neve
+            </label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="allat_nev"
+                name="allat_nev" 
+            >
+        </div>
+
+        <div class="col-4">
+            <label 
+                for="allat_fajta" 
+                class="form-label"
+            >
+                    Fajtája
+            </label>
+            <select 
+                class="form-select"
+                id="allat_fajta"
+                name="allat_fajta"  
+            >
+                <% fajtak.forEach(fajta => { %>
+                
+                    <option value="<%= fajta.fajta_id %>"><%= fajta.fajta_nev %></option>
+        
+                <% }) %>
+            </select>
+        </div> 
+        
+        <div class="col-1">
+            <label 
+                class="form-label"
+            >
+                Neme
+            </label>
+            <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    id="nemeRadio1"
+                    name="neme" 
+                >
+                <label 
+                    class="form-check-label" 
+                    for="nemeRadio1"
+                >
+                    Hím   
+                </label>
+                </div>
+                <div class="form-check">
+                    <input 
+                        class="form-check-input" 
+                        type="radio" 
+                        id="nemeRadio2" 
+                        name="neme"
+                        checked 
+                    >
+                <label 
+                    class="form-check-label" 
+                    for="nemeRadio2"
+                >
+                    Nőstény
+                </label>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="row justify-content-center mb-3">       
+        <div class="col-3">
+            <label 
+                for="ar" 
+                class="form-label"
+            >
+                Ára (Forint)
+            </label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="ar" 
+                name="ar"
+                step="100"  
+                min="300"
+                required
+            >
+        </div>
+    
+        <div class="col-3">
+            <label 
+                for="suly" 
+                class="form-label"
+            >
+                Testsúly (kg)
+            </label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="suly" 
+                name="suly"
+                step="0.1" 
+                min="0.1"
+                required
+            >
+        </div>
+
+        <div class="col-3">
+            <label 
+                for="eletkor" 
+                class="form-label"
+            >
+                Életkor (év)
+            </label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="eletkor" 
+                name="eletkor"
+                min="1"
+                required
+            >
+        </div>
+    </section>
+
+    <section class="row justify-content-center mb-3">
+
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="torzskonyv"
+                    name="torzskonyv"
+                    checked
+                >
+                <label 
+                    class="form-check-label" 
+                    for="torzskonyv"
+                >
+                    Törzskönyv
+                </label>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="ivartalanitott"
+                    name="ivartalanitott"
+                    checked
+                >
+                <label 
+                    class="form-check-label" 
+                    for="ivartalanitott"
+                >
+                    Ivartalanított
+                </label>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="fajtatiszta"
+                    name="fajtatiszta"
+                >
+                <label 
+                    class="form-check-label" 
+                    for="fajtatiszta"
+                >
+                    Fajtatiszta
+                </label>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="oltottsag"
+                    name="oltottsag"
+                >
+                <label 
+                    class="form-check-label" 
+                    for="oltottsag"
+                >
+                    Oltottság
+                </label>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="row justify-content-center">
+    
+        <div class="col-9 mb-5">
+            <label 
+                for="formFile"
+                class="form-label"
+            >
+                Kép feltöltés
+            </label>
+            <input 
+                class="form-control" 
+                type="file" 
+                name="kep" 
+                accept="image=/*" 
+                required
+            >
+        </div>
+
+    </section>
+
+    <div class="col-3 d-grid mx-auto mb-5">
+        <button 
+            type="submit" 
+            class="btn btn-primary"
+        >
+            Feltöltés
+        </button>
+    </div>
+
+  </form>

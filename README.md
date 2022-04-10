@@ -1,5 +1,7 @@
 # Szakdolgozat
 Projekt elinditása:
+
+
 npm i
 
 
